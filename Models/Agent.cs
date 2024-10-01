@@ -31,13 +31,17 @@ namespace P_S_Reality.Models
         [DataType(DataType.Date)]
         public DateTime DateJoined { get; set; }
 
+        public Agent()
+        {
+            Properties = new List<Property>();
+        }
         public int GetTotalPropertiesListed()
         {
-            return GetTotalPropertiesListed?.Count ?? 0;
+            return Properties.Count;
         }
 
         public ICollection<Property> Properties { get; set; } = new List<Property>();
 
-
+        
     }
 }

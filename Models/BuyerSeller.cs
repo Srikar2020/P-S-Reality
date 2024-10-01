@@ -28,7 +28,7 @@ namespace P_S_Reality.Models
 
         public int GetTotalListedProperties()
         {
-            return GetTotalListedProperties?.Count ?? 0;
+            return ListedProperties?.Count ?? 0;
         }
 
         public ICollection<Property> ListedProperties { get; set; } = new List<Property>();

@@ -16,4 +16,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Agents\" />
+    <Folder Include="Pages\BuyerSellers\" />
+    <Folder Include="Pages\Neighborhoods\" />
+    <Folder Include="Pages\Properties\" />
+  </ItemGroup>
+
 </Project>
