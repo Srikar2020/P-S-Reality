@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P_S_Reality.Data;
 
@@ -11,9 +12,11 @@ using P_S_Reality.Data;
 namespace P_S_Reality.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241001064038_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +275,7 @@ namespace P_S_Reality.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BuyerSellerID"));
 
-                    b.Property<DateTime?>("DateRegistered")
+                    b.Property<DateTime>("DateRegistered")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
@@ -289,6 +292,7 @@ namespace P_S_Reality.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreferredContactMethod")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
@@ -317,6 +321,7 @@ namespace P_S_Reality.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CrimeRate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -367,10 +372,14 @@ namespace P_S_Reality.Data.Migrations
                     b.Property<int>("Bedrooms")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BuyerID")
+                    b.Property<int?>("BuyerSellerID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BuyerSellerID1")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
@@ -395,13 +404,11 @@ namespace P_S_Reality.Data.Migrations
                     b.Property<double>("Rating")
                         .HasColumnType("float");
 
-                    b.Property<int>("SellerID")
-                        .HasColumnType("int");
-
                     b.Property<int>("SquareFootage")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
@@ -412,11 +419,11 @@ namespace P_S_Reality.Data.Migrations
 
                     b.HasIndex("AgentID");
 
-                    b.HasIndex("BuyerID");
+                    b.HasIndex("BuyerSellerID");
+
+                    b.HasIndex("BuyerSellerID1");
 
                     b.HasIndex("NeighborhoodID");
-
-                    b.HasIndex("SellerID");
 
                     b.ToTable("Properties");
                 });
@@ -480,30 +487,23 @@ namespace P_S_Reality.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("P_S_Reality.Models.BuyerSeller", "Buyer")
+                    b.HasOne("P_S_Reality.Models.BuyerSeller", null)
                         .WithMany("InterestedProperties")
-                        .HasForeignKey("BuyerID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("BuyerSellerID");
 
-                    b.HasOne("P_S_Reality.Models.Neighborhood", "Neighborhood")
+                    b.HasOne("P_S_Reality.Models.BuyerSeller", null)
+                        .WithMany("ListedProperties")
+                        .HasForeignKey("BuyerSellerID1");
+
+                    b.HasOne("P_S_Reality.Models.Neighborhood", "Neighborhoods")
                         .WithMany("Properties")
                         .HasForeignKey("NeighborhoodID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("P_S_Reality.Models.BuyerSeller", "Seller")
-                        .WithMany("ListedProperties")
-                        .HasForeignKey("SellerID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Agent");
 
-                    b.Navigation("Buyer");
-
-                    b.Navigation("Neighborhood");
-
-                    b.Navigation("Seller");
+                    b.Navigation("Neighborhoods");
                 });
 
             modelBuilder.Entity("P_S_Reality.Models.Agent", b =>

@@ -8,31 +8,27 @@ namespace P_S_Reality.Models
 
         [Required]
         [StringLength(100)]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         [Required]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
         [Required]
         [Phone]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [Required]
-        public string Role { get; set; }
-
-        public string PreferredContactMethod { get; set; }
+        public string? Role { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime DateRegistered { get; set; }
+        public DateTime? DateRegistered { get; set; }
 
-        public int GetTotalListedProperties()
-        {
-            return ListedProperties?.Count ?? 0;
-        }
+        public string? PreferredContactMethod { get; set; }
 
-        public ICollection<Property> ListedProperties { get; set; } = new List<Property>();
 
         public ICollection<Property> InterestedProperties { get; set; } = new List<Property>();
+
+        public ICollection<Property> ListedProperties { get; set; } = new List<Property>();
     }
 }

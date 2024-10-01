@@ -18,6 +18,22 @@ namespace P_S_Reality.Data
 
         public DbSet<Neighborhood> Neighborhoods { get;set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Property>()
+                .HasOne(p => p.Buyer)
+                .WithMany(b => b.InterestedProperties)
+                .HasForeignKey(p => p.BuyerID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Property>()
+                .HasOne(p => p.Seller)
+                .WithMany(s => s.ListedProperties)
+                .HasForeignKey(p => p.SellerID)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
 
     }
 }

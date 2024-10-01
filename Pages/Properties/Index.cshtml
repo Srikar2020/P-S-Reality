@@ -56,7 +56,7 @@
                 @Html.DisplayNameFor(model => model.Property[0].Agent)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Property[0].Neighborhoods)
+                @Html.DisplayNameFor(model => model.Property[0].Neighborhood)
             </th>
             <th></th>
         </tr>
@@ -107,7 +107,7 @@
                 @Html.DisplayFor(modelItem => item.Agent.EmailAddress)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Neighborhoods.City)
+                @Html.DisplayFor(modelItem => item.Neighborhood.City)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.PropertyID">Edit</a> |

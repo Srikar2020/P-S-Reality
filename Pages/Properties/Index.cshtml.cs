@@ -25,7 +25,7 @@ namespace P_S_Reality.Pages.Properties
         {
             Property = await _context.Properties
                 .Include(p => p.Agent)
-                .Include(p => p.Neighborhoods)
+                .Include(p => p.Neighborhood)
                 .ToListAsync();
         }
     }
