@@ -1,0 +1,120 @@
+﻿@page
+@model P_S_Reality.Pages.Properties.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Bedrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Bathrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].SquareFootage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].ListedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].HasGarage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].HasGarden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].IsFurnished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Agent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Neighborhoods)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Property) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bathrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SquareFootage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasGarage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasGarden)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFurnished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agent.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neighborhoods.City)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PropertyID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PropertyID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PropertyID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

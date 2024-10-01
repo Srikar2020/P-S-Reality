@@ -1,0 +1,69 @@
+﻿@page
+@model P_S_Reality.Pages.Neighborhoods.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Neighborhood</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.Name" class="control-label"></label>
+                <input asp-for="Neighborhood.Name" class="form-control" />
+                <span asp-validation-for="Neighborhood.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.City" class="control-label"></label>
+                <input asp-for="Neighborhood.City" class="form-control" />
+                <span asp-validation-for="Neighborhood.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.State" class="control-label"></label>
+                <input asp-for="Neighborhood.State" class="form-control" />
+                <span asp-validation-for="Neighborhood.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.ZipCode" class="control-label"></label>
+                <input asp-for="Neighborhood.ZipCode" class="form-control" />
+                <span asp-validation-for="Neighborhood.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.AveragePrice" class="control-label"></label>
+                <input asp-for="Neighborhood.AveragePrice" class="form-control" />
+                <span asp-validation-for="Neighborhood.AveragePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.PopularityScore" class="control-label"></label>
+                <input asp-for="Neighborhood.PopularityScore" class="form-control" />
+                <span asp-validation-for="Neighborhood.PopularityScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.Population" class="control-label"></label>
+                <input asp-for="Neighborhood.Population" class="form-control" />
+                <span asp-validation-for="Neighborhood.Population" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neighborhood.CrimeRate" class="control-label"></label>
+                <input asp-for="Neighborhood.CrimeRate" class="form-control" />
+                <span asp-validation-for="Neighborhood.CrimeRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -57,9 +57,9 @@ namespace P_S_Reality.Models
         public int AgentID { get; set; }
         public Agent Agent { get; set; }
 
-        public int LocationID { get; set; }
+        public int NeighborhoodID { get; set; }
         
-        public Location Location { get; set; }
+        public Neighborhood Neighborhoods { get; set; }
 
     }
 }

@@ -14,13 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Agents\" />
-    <Folder Include="Pages\BuyerSellers\" />
-    <Folder Include="Pages\Neighborhoods\" />
-    <Folder Include="Pages\Properties\" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
   </ItemGroup>
 
 </Project>

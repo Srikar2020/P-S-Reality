@@ -4,7 +4,7 @@ namespace P_S_Reality.Models
 {
     public class BuyerSeller
     {
-        public int UserID { get; set; }
+        public int BuyerSellerID { get; set; }
 
         [Required]
         [StringLength(100)]

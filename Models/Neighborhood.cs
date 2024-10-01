@@ -4,7 +4,7 @@ namespace P_S_Reality.Models
 {
     public class Neighborhood
     {
-        public int LocationID { get; set; }
+        public int NeighborhoodID { get; set; }
 
         [Required]
         [StringLength(100)]

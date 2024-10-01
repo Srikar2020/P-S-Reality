@@ -1,0 +1,112 @@
+﻿@page
+@model P_S_Reality.Pages.Properties.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Property</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Bedrooms)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Bedrooms)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Bathrooms)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Bathrooms)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.SquareFootage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.SquareFootage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.ListedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.ListedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.HasGarage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.HasGarage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.HasGarden)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.HasGarden)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.IsFurnished)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.IsFurnished)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Agent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Agent.EmailAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Property.Neighborhoods)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Property.Neighborhoods.City)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Property.PropertyID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
