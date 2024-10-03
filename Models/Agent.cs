@@ -4,6 +4,7 @@ namespace P_S_Reality.Models
 {
     public class Agent
     {
+        [DisplayName("Agent ID")]
         public int AgentID { get; set; }
 
         [Required]
@@ -12,13 +13,16 @@ namespace P_S_Reality.Models
 
         [Required]
         [Phone]
+        [DisplayName("Phone Number")]
         public string PhoneNumber { get; set; }
 
         [Required]
         [EmailAddress]
+        [DisplayName("Email Address")]
         public string EmailAddress { get; set; }
 
         [Range(0,50)]
+        [DisplayName("Years of Experience")]
         public int ExperienceYears { get; set; }
 
 
@@ -26,9 +30,11 @@ namespace P_S_Reality.Models
         public string Specialization { get; set; }
 
         [Range(0 ,5)]
+        [DisplayName("Average Rating")]
         public double AverageRating { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayName("Date Joined")]
         public DateTime DateJoined { get; set; }
 
         public Agent()
