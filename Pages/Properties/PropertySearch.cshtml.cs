@@ -29,7 +29,7 @@ namespace P_S_Reality.Pages.Properties
             {
                 SearchCompleted = true;
                 Property = await _context.Properties
-                    .Where(x => x.PropertyID.Equals(query))
+                    .Where(x => x.Address.Contains(query))
                     .ToListAsync();
             }
             else
