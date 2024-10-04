@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using P_S_Reality.Data;
 using P_S_Reality.Models;
 
@@ -23,6 +24,7 @@ namespace P_S_Reality.Pages.Properties
         {
         ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "EmailAddress");
         ViewData["NeighborhoodID"] = new SelectList(_context.Neighborhoods, "NeighborhoodID", "City");
+        ViewData["SellerID"] = new SelectList(_context.BuyerSellers, "BuyerSellerID", "FullName");
             return Page();
         }
 
@@ -34,6 +36,16 @@ namespace P_S_Reality.Pages.Properties
         {
             if (!ModelState.IsValid)
             {
+                return Page();
+            }
+
+            var sellerExists = await _context.BuyerSellers.AnyAsync(b => b.BuyerSellerID == Property.SellerID);
+            if (!sellerExists)
+            {
+                ModelState.AddModelError("Property.SellerID", "The specified seller does not exist.");
+                ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "EmailAddress");
+                ViewData["NeighborhoodID"] = new SelectList(_context.Neighborhoods, "NeighborhoodID", "City");
+                ViewData["SellerID"] = new SelectList(_context.BuyerSellers, "BuyerSellerID", "FullName");
                 return Page();
             }
 

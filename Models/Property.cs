@@ -10,6 +10,7 @@ namespace P_S_Reality.Models
         [DisplayName("Property ID")]
         public int PropertyID { get; set; }
 
+        [Required(ErrorMessage = "Seller ID is Required")]
         [DisplayName("Seller ID")]
         public int SellerID { get; set; }
         [ForeignKey("SellerID")]
@@ -33,7 +34,7 @@ namespace P_S_Reality.Models
         public Neighborhood? Neighborhood { get; set; }
 
         [DisplayName("Agent ID")]
-        public int AgentID { get; set; }
+        public int? AgentID { get; set; }
         public Agent? Agent { get; set; }
 
 
