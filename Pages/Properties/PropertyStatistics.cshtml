@@ -1,0 +1,40 @@
+﻿@page
+@model PropertyStatsModel
+
+@{
+    ViewData["Title"] = "Property Statistics";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Property Statistics</h1>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Properties: @Model.TotalProperties
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Percent Sold: @Model.PercentSold
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Percent Leased: @Model.PercentLeased
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Percent Available: @Model.PercentAvailable
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Average Price: @Model.AveragePrice
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Average Square Footage: @Model.AverageSqFt
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Average Rating: @Model.AverageRating
+    </li>
+</ul>
+
+<footer class="bg-dark text-white mt-5 p-4 text-center">
+    &copy; 2024 P.S Reality - Your Real Estate Partner
+    <br />
+    <a href="mailto:info@psreality.com" class="text-white>" info@psreality.com</a>
+</footer>
