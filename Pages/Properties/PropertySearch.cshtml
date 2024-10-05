@@ -1,64 +1,73 @@
-﻿@page
+@page
 @model P_S_Reality.Pages.Properties.PropertySearchModel
 
 @{
     ViewData["Title"] = "PropertySearch";
 }
 
-<h1>PropertySearch</h1>
+<div class="container text-center">
+    <h1 class="display-4">Property Search</h1>
+    <p>Enter any part of the address in order to find all properties which match this address.</p>
 
-<div class="row">
-    <div class="col">
-        <form action="" method="get" class="form-inline">
-            <input asp-for="Query" class="form-control mr-sm-2 mb-2" placeholder="Search Address..." />
-            <button type="submit" class="btn btn-primary mb-2">Search</button>
-        </form>
+    <div class="row">
+        <div class="col">
+            <form action="" method="get" class="form-inline">
+                <input asp-for="Query" class="form-control mr-sm-2 mb-2" placeholder="Search Address..." />
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
+        </div>
     </div>
 </div>
 
-@if (Model.SearchCompleted)
-{
-    if (Model.Property.Any())
+<div>
+    @if (Model.SearchCompleted)
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Property ID</th>
-                    <th>Seller ID</th>
-                    <th>Buyer ID</th>
-                    <th>Address</th>
-                    <th>Price</th>
-                    <th>Neighborhood</th>
-                    <th>Agent</th>
-                    <th>Status</th>
-                    <th>Full Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Property)
-                {
+        if (Model.Property.Any())
+        {
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.PropertyID)</td>
-                        <td>@Html.DisplayFor(modelItem => item.SellerID)</td>
-                        <td>@Html.DisplayFor(modelItem => item.BuyerID)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Neighborhood)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Agent)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                        <td><a asp-page="/Property/Details" asp-route-id="@item.PropertyID">Details</a></td>
+                        <th>Property ID</th>
+                        <th>Seller ID</th>
+                        <th>Buyer ID</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Neighborhood</th>
+                        <th>Agent</th>
+                        <th>Status</th>
                     </tr>
-                }
-        </table>
-    }
-    else
-    {
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-info">
-                    No results match your property search. <strong>@Model.Query</strong>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Property)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.PropertyID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.BuyerID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Neighborhood)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Agent)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        </tr>
+                    }
+            </table>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-info">
+                        No results match this address.
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     }
-}
+</div>
+
+<footer class="bg-dark text-white mt-5 p-4 text-center">
+    &copy; 2024 P.S Reality - Your Real Estate Partner
+    <br />
+    <a href="mailto:info@psreality.com" class="text-white>" info@psreality.com</a>
+</footer>
