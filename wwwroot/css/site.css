@@ -21,3 +21,44 @@ body {
   margin-bottom: 0px;
 }
 
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.team-member {
+    position: relative;
+    max-width: 200px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.image-container img{
+    transition: all 0.3s ease;
+}
+
+.info{
+    margin-left: 15px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.team-member:hover .info{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.rounded-circle {
+    border: 2px solid #258cfb;
+    width: 150px;
+    height: 150px;
+}
