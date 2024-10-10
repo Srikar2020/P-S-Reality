@@ -25,7 +25,9 @@ namespace P_S_Reality.Pages.Properties
         public decimal PercentLeased { get; set; }
         public decimal PercentAvailable { get; set; }
         public double AverageSqFt { get; set; }
+        public string SqFtCommas { get; set; }
         public decimal AveragePrice { get; set; }
+        public string PriceCommas { get; set; }
         public double AverageRating { get; set; }
 
         public async Task OnGetAsync()
