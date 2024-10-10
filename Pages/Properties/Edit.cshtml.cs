@@ -38,6 +38,7 @@ namespace P_S_Reality.Pages.Properties
             Property = property;
            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "EmailAddress");
            ViewData["NeighborhoodID"] = new SelectList(_context.Neighborhoods, "NeighborhoodID", "City");
+           ViewData["SellerID"] = new SelectList(_context.BuyerSellers, "BuyerSellerID", "FullName");
             return Page();
         }
 
