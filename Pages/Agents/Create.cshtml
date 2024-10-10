@@ -5,59 +5,57 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Add Agent</h1>
 
-<h4>Agent</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Agent.Name" class="control-label"></label>
-                <input asp-for="Agent.Name" class="form-control" />
-                <span asp-validation-for="Agent.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.PhoneNumber" class="control-label"></label>
-                <input asp-for="Agent.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Agent.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.EmailAddress" class="control-label"></label>
-                <input asp-for="Agent.EmailAddress" class="form-control" />
-                <span asp-validation-for="Agent.EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.ExperienceYears" class="control-label"></label>
-                <input asp-for="Agent.ExperienceYears" class="form-control" />
-                <span asp-validation-for="Agent.ExperienceYears" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.Specialization" class="control-label"></label>
-                <input asp-for="Agent.Specialization" class="form-control" />
-                <span asp-validation-for="Agent.Specialization" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.AverageRating" class="control-label"></label>
-                <input asp-for="Agent.AverageRating" class="form-control" />
-                <span asp-validation-for="Agent.AverageRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agent.DateJoined" class="control-label"></label>
-                <input asp-for="Agent.DateJoined" class="form-control" />
-                <span asp-validation-for="Agent.DateJoined" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="row w-75 mx-auto">
+    <form method="post" class="row g-3 mb-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-md-6">
+            <label asp-for="Agent.Name" class="control-label"></label>
+            <input asp-for="Agent.Name" class="form-control" />
+            <span asp-validation-for="Agent.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Agent.Specialization" class="control-label"></label>
+            <input asp-for="Agent.Specialization" class="form-control" />
+            <span asp-validation-for="Agent.Specialization" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Agent.PhoneNumber" class="control-label"></label>
+            <input asp-for="Agent.PhoneNumber" class="form-control" />
+            <span asp-validation-for="Agent.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Agent.EmailAddress" class="control-label"></label>
+            <input asp-for="Agent.EmailAddress" class="form-control" />
+            <span asp-validation-for="Agent.EmailAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Agent.ExperienceYears" class="control-label"></label>
+            <input asp-for="Agent.ExperienceYears" class="form-control" />
+            <span asp-validation-for="Agent.ExperienceYears" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group col-md-4">
+            <label asp-for="Agent.AverageRating" class="control-label"></label>
+            <input asp-for="Agent.AverageRating" class="form-control" />
+            <span asp-validation-for="Agent.AverageRating" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Agent.DateJoined" class="control-label"></label>
+            <input asp-for="Agent.DateJoined" class="form-control" />
+            <span asp-validation-for="Agent.DateJoined" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" value="Create Record" class="btn btn-primary" />
+        </div>
+        <div class="form-group col-md-3">
+            <a href ="/Agents" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

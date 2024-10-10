@@ -5,55 +5,53 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit Buyer or Seller</h1>
 
-<h4>BuyerSeller</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="BuyerSeller.BuyerSellerID" />
-            <div class="form-group">
-                <label asp-for="BuyerSeller.FullName" class="control-label"></label>
-                <input asp-for="BuyerSeller.FullName" class="form-control" />
-                <span asp-validation-for="BuyerSeller.FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyerSeller.EmailAddress" class="control-label"></label>
-                <input asp-for="BuyerSeller.EmailAddress" class="form-control" />
-                <span asp-validation-for="BuyerSeller.EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyerSeller.PhoneNumber" class="control-label"></label>
-                <input asp-for="BuyerSeller.PhoneNumber" class="form-control" />
-                <span asp-validation-for="BuyerSeller.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyerSeller.Role" class="control-label"></label>
-                <input asp-for="BuyerSeller.Role" class="form-control" />
-                <span asp-validation-for="BuyerSeller.Role" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyerSeller.PreferredContactMethod" class="control-label"></label>
-                <input asp-for="BuyerSeller.PreferredContactMethod" class="form-control" />
-                <span asp-validation-for="BuyerSeller.PreferredContactMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyerSeller.DateRegistered" class="control-label"></label>
-                <input asp-for="BuyerSeller.DateRegistered" class="form-control" />
-                <span asp-validation-for="BuyerSeller.DateRegistered" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="row w-75 mx-auto">
+    <form method="post" class="row g-3 mb-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="BuyerSeller.BuyerSellerID" />
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.FullName" class="control-label"></label>
+            <input asp-for="BuyerSeller.FullName" class="form-control" />
+            <span asp-validation-for="BuyerSeller.FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.Role" class="control-label"></label>
+            <input asp-for="BuyerSeller.Role" class="form-control" />
+            <span asp-validation-for="BuyerSeller.Role" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.EmailAddress" class="control-label"></label>
+            <input asp-for="BuyerSeller.EmailAddress" class="form-control" />
+            <span asp-validation-for="BuyerSeller.EmailAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.PhoneNumber" class="control-label"></label>
+            <input asp-for="BuyerSeller.PhoneNumber" class="form-control" />
+            <span asp-validation-for="BuyerSeller.PhoneNumber" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.PreferredContactMethod" class="control-label"></label>
+            <input asp-for="BuyerSeller.PreferredContactMethod" class="form-control" />
+            <span asp-validation-for="BuyerSeller.PreferredContactMethod" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="BuyerSeller.DateRegistered" class="control-label"></label>
+            <input asp-for="BuyerSeller.DateRegistered" class="form-control" type="date" />
+            <span asp-validation-for="BuyerSeller.DateRegistered" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" value="Update Record" class="btn btn-primary" />
+        </div>
+        <div class="form-group col-md-3">
+            <a href ="/BuyerSellers" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
