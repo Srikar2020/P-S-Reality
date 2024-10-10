@@ -11,16 +11,13 @@
     <a asp-page="Create">Create New</a>
 </p>
 <table class="table table-hover">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Property[0].Address)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Property[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property[0].Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Property[0].Type)
@@ -35,22 +32,7 @@
                 @Html.DisplayNameFor(model => model.Property[0].SquareFootage)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Property[0].ListedDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Property[0].Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property[0].HasGarage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property[0].HasGarden)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property[0].IsFurnished)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property[0].Rating)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Property[0].Agent)
@@ -71,9 +53,6 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
@@ -86,22 +65,7 @@
                 @Html.DisplayFor(modelItem => item.SquareFootage)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ListedDate)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasGarage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasGarden)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFurnished)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Agent.EmailAddress)
