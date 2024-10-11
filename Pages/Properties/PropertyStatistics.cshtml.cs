@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,9 +21,9 @@ namespace P_S_Reality.Pages.Properties
         }
 
         public int TotalProperties { get; set; }
-        public decimal PercentSold { get; set; }
-        public decimal PercentLeased { get; set; }
-        public decimal PercentAvailable { get; set; }
+        public decimal NumberSold { get; set; }
+        public decimal NumberLeased { get; set; }
+        public decimal NumberAvailable { get; set; }
         public double AverageSqFt { get; set; }
         public string SqFtCommas { get; set; }
         public decimal AveragePrice { get; set; }
@@ -33,14 +33,13 @@ namespace P_S_Reality.Pages.Properties
         public async Task OnGetAsync()
         {
             TotalProperties = await _context.Properties.CountAsync();
-            PercentSold = (await _context.Properties.Where(x => x.Status.StartsWith("Sold")).CountAsync()) / (await _context.Properties.CountAsync()) * 100;
-            PercentSold = Math.Round(PercentSold, 2);
-            PercentLeased = (await _context.Properties.Where(x => x.Status.StartsWith("Leased")).CountAsync()) / (await _context.Properties.CountAsync()) * 100;
-            PercentLeased = Math.Round(PercentLeased, 2);
-            PercentAvailable = (await _context.Properties.Where(x => x.Status.StartsWith("Available")).CountAsync()) / (await _context.Properties.CountAsync()) * 100;
-            PercentAvailable = Math.Round(PercentAvailable, 2);
+            // Number in Each Status
+            NumberSold = (await _context.Properties.Where(x => x.Status.Contains("Sold")).CountAsync());
+            NumberLeased = (await _context.Properties.Where(x => x.Status.Contains("Leased")).CountAsync());
+            NumberAvailable = (await _context.Properties.Where(x => x.Status.Contains("Available")).CountAsync());
             AverageSqFt = await _context.Properties.AverageAsync(x => x.SquareFootage);
             AverageSqFt = Math.Round(AverageSqFt, 0);
+            // Converting to String to Use Comma Separators for Large Numbers
             SqFtCommas = AverageSqFt.ToString("N0");
             AveragePrice = await _context.Properties.AverageAsync(x => x.Price);
             AveragePrice = Math.Round(AveragePrice, 0);
