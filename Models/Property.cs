@@ -59,7 +59,7 @@ namespace P_S_Reality.Models
         [DisplayName("Listed Date")]
         public DateTime ListedDate { get; set; }
 
-        public string? Status { get; set; }
+        public string? Status { get; set; } //Examples: Available, Leased, Sold
 
 
         [DisplayName("Has Garage")]
