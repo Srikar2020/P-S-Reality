@@ -10,6 +10,7 @@ using P_S_Reality.Models;
 
 namespace P_S_Reality.Pages.BuyerSellers
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly P_S_Reality.Data.ApplicationDbContext _context;
