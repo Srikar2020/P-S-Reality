@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using P_S_Reality.Data;
 using P_S_Reality.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace P_S_Reality.Pages.Neighborhoods
 {
