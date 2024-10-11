@@ -11,6 +11,7 @@ using P_S_Reality.Models;
 
 namespace P_S_Reality.Pages.Neighborhoods
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly P_S_Reality.Data.ApplicationDbContext _context;
