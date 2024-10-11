@@ -28,7 +28,7 @@ namespace P_S_Reality.Pages.Properties
                 return NotFound();
             }
 
-            var property = await _context.Properties.FirstOrDefaultAsync(m => m.PropertyID == id);
+            var property = await _context.Properties.Include(x => x.Agent).Include(x => x.Neighborhood).FirstOrDefaultAsync(m => m.PropertyID == id);
             if (property == null)
             {
                 return NotFound();
